@@ -389,17 +389,18 @@
     margin-right: .7rem;
     
     //for older browser
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
-    //for newers browser- masks
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
-
-
+    //for newers browser- masks //if browser support -mask then it will work . other wise will work avob one
+    @supports(-webkit-mask-image: url()) or (mask-image: url()){
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+  
+    }
   
   }
 
